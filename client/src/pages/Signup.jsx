@@ -78,17 +78,17 @@ const Wrapper = styled.div`
 `
 
 const Form = styled.form`
-  background-color: #F4F4ED;
+  background-color: #FFFFFF;
   line-height: 2;
   width: 30em;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: .5rem;
+  border-radius: .3rem;
   div {
     margin-top: .2rem;
   }
   label {
-    color: #778472;
+    color: #4A4A4A;
     font-weight: 900;
     margin: .5rem;
   }
@@ -96,18 +96,19 @@ const Form = styled.form`
     padding: 0.5rem;
     width: 90%;
     border: none;
-    border-radius: .5rem;
+    border-radius: .3rem;
+    background-color: #e0e0e0fd;
   }
   button {
-    background-color: #778472;
+    background-color: #4a4a4a;
     border: none;
     border-radius: .5rem;
-    color: #fff;
+    color: #FFFFFF;
     margin-top: 2rem;
     padding: 0.5rem 1rem;
     font-weight: 900;
     &:hover {
-      background-color: #fff;
+      background-color: #e0e0e0fd;
       color: #778472;
     }
   }

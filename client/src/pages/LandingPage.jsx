@@ -75,9 +75,9 @@ const AddBtn = styled(Link)`
   text-decoration: none;
   background-color: #FFFFFF;
   color: #4A4A4A;
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: 600;
-  padding: 1rem .8rem;
+  padding: .8rem .6rem;
   letter-spacing: .1rem;
   border-radius: .3rem;
   &:hover {
