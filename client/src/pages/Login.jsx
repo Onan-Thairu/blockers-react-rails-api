@@ -28,7 +28,7 @@ function Login() {
 
   return (
     <Wrapper>
-      <Link to={"/"}>Home</Link>
+      <Link to={"/list-all"}>Home</Link>
       <h4>LOGIN</h4>
       <div>
         <Form onSubmit={ handleLogin }>

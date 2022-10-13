@@ -21,7 +21,7 @@ function LandingPage() {
         <StyledPhoto />
       </HeroContainer>
       <Btn>
-        <AddBtn to='/signup'>EXPLORE</AddBtn>
+        <AddBtn to='/list-all'>EXPLORE</AddBtn>
         <AddBtn to='/login'>LOG IN</AddBtn>
         <AddBtn to='/signup'>SIGN UP</AddBtn>
       </Btn>

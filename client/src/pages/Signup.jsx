@@ -31,7 +31,7 @@ function Signup() {
 
   return (
     <Wrapper>
-      <Link to={"/"}>Home</Link>
+      <Link to={"/list-all"}>Home</Link>
       <h4>SIGN UP</h4>
       <div>
         <Form onSubmit={ handleSignup }>
