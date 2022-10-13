@@ -41,7 +41,7 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" id="password" autoComplete="on" required value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div>
             <label htmlFor="password_confirmation">Confirm Password</label>

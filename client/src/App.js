@@ -11,7 +11,7 @@ function App() {
           response.json().then((user) => setUser(user))
         }
       })
-  })
+  }, [])
   return (
     <div className="App">
       {
