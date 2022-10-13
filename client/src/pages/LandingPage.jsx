@@ -21,6 +21,7 @@ function LandingPage() {
         <StyledPhoto />
       </HeroContainer>
       <Btn>
+        <AddBtn to='/signup'>EXPLORE</AddBtn>
         <AddBtn to='/login'>LOG IN</AddBtn>
         <AddBtn to='/signup'>SIGN UP</AddBtn>
       </Btn>
@@ -87,7 +88,7 @@ const Btn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
+  width: 600px;
   margin: 5rem auto;
   gap: 4rem;
 `
