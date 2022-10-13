@@ -53,17 +53,19 @@ const HeroContainer = styled.div`
 const Hero = styled.div`
   margin-top: 10%;
   font-size: 1.1em;
-  letter-spacing: .1rem;
-  font-weight: 400;
-  background-color: #778472;
+  
+  font-weight: 600;
+  background-color: #FFFFFF;
   padding: 1rem;
-  border-radius: .8rem;
-  color: #fff;
+  border-radius: .5rem;
+  color: #4A4A4A;
   
   p {
-    background-color: #F4F4ED;
-    margin-top: .4rem;
-    color: #778472;
+    background-color: #e0e0e0fd;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: .6rem;
+    color: #4A4A4A;
     padding: 1rem;
     border-radius: .8rem;
   }
@@ -71,16 +73,16 @@ const Hero = styled.div`
 
 const AddBtn = styled(Link)`
   text-decoration: none;
-  background-color: #778472;
-  color: #fff;
+  background-color: #FFFFFF;
+  color: #4A4A4A;
   font-size: 1rem;
   font-weight: 600;
   padding: 1rem .8rem;
   letter-spacing: .1rem;
-  border-radius: .5rem;
+  border-radius: .3rem;
   &:hover {
-    background-color: #F4F4ED;
-    color: #778472;
+    background-color: #4A4A4A;
+    color: #FFFFFF;
   }
 `
 

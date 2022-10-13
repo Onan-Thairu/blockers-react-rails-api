@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0% 10%;
   font-family: 'Montserrat', sans-serif;
+  background-color: #e0e0e0fd;
 }
 
 code {
@@ -21,8 +22,9 @@ code {
 }
 
 h4 {
-  font-size: 2rem;
-  color: #778472;
+  font-size: 1.1rem;
+  /* color: #778472; */
+  /* color: #4A4A4A; */
 }
 
 h3 {

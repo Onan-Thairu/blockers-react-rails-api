@@ -34,13 +34,17 @@ const Header = styled.div`
 `
 const AddBtn = styled(Link)`
   text-decoration: none;
-  background-color: #778472;
-  color: #fff;
+  background-color: #FFFFFF;
+  color: #4A4A4A;
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 900;
   padding: .7rem .8rem;
   letter-spacing: .1rem;
   border-radius: .5rem;
+  &:hover {
+    background-color: #4A4A4A;
+    color: #FFFFFF;
+  }
 `
 
 export default Home
