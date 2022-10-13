@@ -10,7 +10,7 @@ function Description({blocker, handleDelete }) {
         <h2 onClick={() => handleDelete(blocker.id)} ><AiOutlineDelete /></h2>
         <h4>{blocker.description}</h4>
         <Solution solution={ blocker.solution} />
-        <h6>By {blocker.user.username}</h6>
+        <span><h6>By {blocker.user.username}</h6><h6 id="tag">{blocker.tag}</h6></span>
       </Container>
     </>
   )
@@ -27,7 +27,16 @@ const Container = styled.div`
   h6 {
     margin: 0;
     padding: 0;
-    color: #363636;
+    color: #4A4A4A;
+  }
+  span h6 {
+    display: inline;
+  }
+  #tag {
+    margin-left: 1rem;
+    background-color: #e0e0e0fd;
+    padding: .1rem .2rem;
+    border-radius: .3rem;
   }
   h2 {
     display: flex;
