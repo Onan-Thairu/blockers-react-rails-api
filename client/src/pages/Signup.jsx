@@ -1,30 +1,32 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 function Signup() {
-  let navigate = useNavigate()
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+
+  // let navigate = useNavigate()
 
   const handleSignup = (e) => {
     e.preventDefault()
-    const form = e.target.elements
-
-    const data = {
-      username: form.username.value,
-      password: form.password.value,
-      password_confirmation: form.password_confirmation.value,
-    }
-
     fetch(`/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        username,
+        password,
+        password_confirmation: passwordConfirmation
+      })
     })
-    .then(() => {
-      navigate('/login')
-    })
+    .then((response) => console.log(response))
+    // .then(() => {
+    //   navigate('/login')
+    // })
   }
 
   return (
@@ -35,15 +37,15 @@ function Signup() {
         <Form onSubmit={ handleSignup }>
           <div>
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" required />
+            <input type="text" id="username" required value={username} onChange={(e) => setUsername(e.target.value)} />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" required />
+            <input type="password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div>
             <label htmlFor="password_confirmation">Confirm Password</label>
-            <input type="password" name="password_confirmation" required />
+            <input type="password" id="password_confirmation" required value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
           </div>
           <button>SUBMIT</button>
           <p>Already have an account? <Link to={"/login"} id="login">Login</Link></p>
