@@ -1,26 +1,22 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 // import { useNavigate } from "react-router-dom"
 
 function Login() {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   // let navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
-    const form = e.target.elements
-
-    const data = {
-      email: form.email.value,
-      password: form.password.value,
-    }
-
     fetch(`/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        // "Access-Control-Allow-Origin": "*"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({username, password})
     })
     .then((response) => response.json())
     .then((data) => console.log(data))
@@ -38,11 +34,11 @@ function Login() {
         <Form onSubmit={ handleLogin }>
           <div>
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" required />
+            <input type="text" name="username" required onChange={(e) => setUsername(e.target.value) } />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" required />
+            <input type="password" name="password" required onChange={(e) => setPassword(e.target.value) } />
           </div>
           <button>SUBMIT</button>
           <p>Don't have an account? <Link to={"/signup"} id="signup" >Signup</Link></p>
