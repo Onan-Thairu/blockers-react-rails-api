@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_13_023940) do
+ActiveRecord::Schema.define(version: 2022_10_13_094329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blockers", force: :cascade do |t|
+    t.text "description"
+    t.text "solution"
+    t.string "tag"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blockers_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,4 +32,5 @@ ActiveRecord::Schema.define(version: 2022_10_13_023940) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "blockers", "users"
 end
