@@ -1,7 +1,7 @@
 class BlockersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :blocker_not_found
   before_action :authorize
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :filter]
 
   def index
     blockers = Blocker.all.order(updated_at: :desc)
@@ -27,6 +27,11 @@ class BlockersController < ApplicationController
     else
       render json: { error: "Not authorized" }, status: :unauthorized
     end
+  end
+
+  def filter
+    blockers = Blocker.where("tag = ?", params[:tag]).order(updated_at: :desc)
+    render json: blockers, status: :ok
   end
 
   private

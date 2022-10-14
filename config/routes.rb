@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :blockers, only: [:index, :create, :destroy]
+  get '/blockers/:tag', to: 'blockers#filter'
+
   # resources :users, only: [:create]
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
