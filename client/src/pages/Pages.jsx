@@ -8,7 +8,7 @@ import CreateBlocker from "./CreateBlocker";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function Pages() {
-  const [user, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
     fetch("/me")
@@ -23,7 +23,7 @@ function Pages() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={ <LandingPage /> } ></Route>
-        <Route path="/list-all" element={ <Home user={user} /> }></Route>
+        <Route path="/list-all" element={ <Home currentUser={currentUser} /> }></Route>
         <Route path="/create-blocker" element={ <CreateBlocker /> }></Route>
         <Route path="/signup" element={ <Signup /> } ></Route>
         <Route path="/login" element={ <Login setCurrentUser={setCurrentUser} /> } ></Route>

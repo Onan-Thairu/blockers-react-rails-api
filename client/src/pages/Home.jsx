@@ -2,16 +2,16 @@ import Blockers from "../components/Blockers"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-function Home({user}) {
+function Home({currentUser}) {
   return (
     <>
       <div>
         <Header>
           <h4>Blockers</h4>
-          { user ? <AddBtn to='/create-blocker'>ADD BLOCKER</AddBtn> : null }
-          { user ? <Nav to="/logout">Logout {user.username}</Nav> : <Nav to="/login">Login</Nav> }
+          { currentUser ? <AddBtn to='/create-blocker'>ADD BLOCKER</AddBtn> : null }
+          { currentUser ? <Nav to="/logout">Logout {currentUser.username}</Nav> : <Nav to="/login">Login</Nav> }
         </Header>
-        <Blockers />
+        <Blockers currentUser={currentUser} />
       </div>
     </>
   )

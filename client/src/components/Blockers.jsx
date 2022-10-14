@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Description from "./Description"
 
-function Blockers() {
+function Blockers({currentUser}) {
 
   const [blockers, setBlockers] = useState([])
 
@@ -13,7 +13,7 @@ function Blockers() {
     fetch('/blockers')
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         setBlockers(data)
       })
   }
@@ -32,7 +32,7 @@ function Blockers() {
       {
         blockers.map((blocker) => {
           return (
-            <Description key={blocker.id} blocker={blocker} handleDelete={handleDelete} />
+            <Description key={blocker.id} blocker={blocker} handleDelete={handleDelete} currentUser={currentUser} />
           )
         })
       }
