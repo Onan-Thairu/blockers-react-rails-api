@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 function Signup() {
@@ -8,7 +8,7 @@ function Signup() {
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
-  // let navigate = useNavigate()
+  let navigate = useNavigate()
 
   const handleSignup = (e) => {
     e.preventDefault()
@@ -23,10 +23,11 @@ function Signup() {
         password_confirmation: passwordConfirmation
       })
     })
-    .then((response) => console.log(response))
-    // .then(() => {
-    //   navigate('/login')
-    // })
+    .then((response) => {
+      if (response.ok) {
+        navigate('/login')
+      }
+    })
   }
 
   return (

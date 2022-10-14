@@ -9,10 +9,8 @@ function Home({user}) {
         <Header>
           <h4>Blockers</h4>
           { user ? <AddBtn to='/create-blocker'>ADD BLOCKER</AddBtn> : null }
-          {/* { user ? <a href="/logout">Logout</a> : null } */}
-          { user ? <Nav to="/logout">Logout</Nav> : <Nav to="/login">Login</Nav> }
+          { user ? <Nav to="/logout">Logout {user.username}</Nav> : <Nav to="/login">Login</Nav> }
         </Header>
-          {/* { user ? <a href="/logout">Logout</a> : null } */}
         <Blockers />
       </div>
     </>
