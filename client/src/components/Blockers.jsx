@@ -13,7 +13,6 @@ function Blockers({currentUser}) {
     fetch('/blockers')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setBlockers(data)
       })
   }
@@ -22,7 +21,6 @@ function Blockers({currentUser}) {
     fetch(`/blockers/${id}`, {
       method: "DELETE",
     })
-    .then((response) => response.json())
     .then(() => {
       getBlockers()
     })

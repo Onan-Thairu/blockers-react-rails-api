@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :blockers, only: [:index, :create]
+  resources :blockers, only: [:index, :create, :destroy]
   # resources :users, only: [:create]
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
