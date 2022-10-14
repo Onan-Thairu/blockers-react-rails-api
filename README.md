@@ -11,6 +11,13 @@ Blockers is a web application designed to help Moringa School Software Engineeri
 - Heroku CLI
 - Postgresql
 
+## Deliverables
+- A user can create an account.
+- A logged in user can create a blocker.
+- A user can only delete a blocker that they created.
+- A user can filter blockers based on tags assigned to a blocker.
+- A user can view blockers created by other users buy can edit them.
+
 ## Technologies used
 - React
 - Ruby on Rails
