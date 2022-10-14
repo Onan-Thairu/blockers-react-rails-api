@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Description from "./Description"
+import Filter from "./Filter"
 
 function Blockers({currentUser}) {
 
@@ -25,8 +26,22 @@ function Blockers({currentUser}) {
       getBlockers()
     })
   }
+
+  const handleFilter = (selectedTag) => {
+    if (selectedTag === "all") {
+      getBlockers()
+    } else {
+      fetch(`/blockers/${selectedTag}`)
+      .then(response => response.json())
+      .then(data => {
+        setBlockers(data)
+      })
+    }
+  }
+
   return (
     <>
+      <Filter handleFilter={ handleFilter } />
       {
         blockers.map((blocker) => {
           return (
