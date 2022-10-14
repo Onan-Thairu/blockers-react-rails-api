@@ -1,5 +1,6 @@
 import Signup from "./Signup";
 import Login from "./Login";
+import Logout from "./Logout";
 import LandingPage from "./LandingPage";
 import Home from "./Home";
 import CreateBlocker from "./CreateBlocker";
@@ -14,6 +15,7 @@ function Pages() {
         <Route path="/create-blocker" element={ <CreateBlocker /> }></Route>
         <Route path="/signup" element={ <Signup /> } ></Route>
         <Route path="/login" element={ <Login /> } ></Route>
+        <Route path="/logout" element={ <Logout /> } ></Route>
       </Routes>
     </BrowserRouter>
   )
