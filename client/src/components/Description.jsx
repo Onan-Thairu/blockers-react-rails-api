@@ -44,7 +44,7 @@ const Container = styled.div`
   #tag {
     margin-left: 1rem;
     background-color: #e0e0e0fd;
-    padding: .1rem;
+    padding: .1rem .2rem;
     border-radius: .3rem;
   }
   h2 {
