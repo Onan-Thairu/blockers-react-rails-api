@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-function Login() {
+function Login({ setCurrentUser }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  // let navigate = useNavigate()
+  let navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -14,16 +14,14 @@ function Login() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify({username, password})
     })
     .then((response) => response.json())
-    .then((data) => console.log(data))
-    // .then((data) => {
-    //   localStorage.setItem("currentUser", data.user_id)
-    //   navigate("/blockers-list")
-    // })
+    .then((user) => {
+      setCurrentUser(user)
+      navigate("/list-all")
+    })
   }
 
   return (
@@ -38,7 +36,7 @@ function Login() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" required onChange={(e) => setPassword(e.target.value) } />
+            <input type="password" name="password" autoComplete="on" required onChange={(e) => setPassword(e.target.value) } />
           </div>
           <button>SUBMIT</button>
           <p>Don't have an account? <Link to={"/signup"} id="signup" >Signup</Link></p>

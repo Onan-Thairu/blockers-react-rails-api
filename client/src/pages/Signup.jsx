@@ -45,7 +45,7 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="password_confirmation">Confirm Password</label>
-            <input type="password" id="password_confirmation" required value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+            <input type="password" id="password_confirmation" autoComplete="on" required value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
           </div>
           <button>SUBMIT</button>
           <p>Already have an account? <Link to={"/login"} id="login">Login</Link></p>
