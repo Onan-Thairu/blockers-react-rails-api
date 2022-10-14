@@ -8,13 +8,13 @@ function CreateBlocker() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target.elements
-    const currentUser = localStorage.getItem("currentUser")
+    // const currentUser = localStorage.getItem("currentUser")
 
     const data = {
       description: form.description.value,
       tag: form.tags.value,
       solution: form.solution.value,
-      user_id: currentUser
+      // user_id: currentUser
     }
 
     fetch(`/blockers`, {
@@ -25,15 +25,15 @@ function CreateBlocker() {
       body: JSON.stringify(data)
     })
     .then((response) => {
-      if (response.status === 200) {
-        navigate("/blockers-list")
+      if (response.status === 201) {
+        navigate("/list-all")
       }
     })
   }
 
   return (
     <Wrapper>
-      <Link to={"/blockers-list"}>Home</Link>
+      <Link to={"/list-all"}>Home</Link>
       <h4>Create Blocker</h4>
       <div>
         <Form onSubmit={ handleSubmit }>
@@ -41,12 +41,6 @@ function CreateBlocker() {
             <label htmlFor="description">BLOCKER</label>
             <textarea name="description" id="description" cols="30" rows="5" required ></textarea>
           </div>
-          
-          <div>
-            <label htmlFor="solution">SOLUTION</label>
-            <textarea name="solution" id="solution" cols="30" rows="5" required ></textarea>
-          </div>
-
           <div>
             <label htmlFor="tags">TAG</label>
             <select id="tags" name="tags" required >
@@ -55,6 +49,10 @@ function CreateBlocker() {
               <option value="ruby">Ruby</option>
               <option value="javascript">Javascript</option>
             </select>
+          </div>
+          <div>
+            <label htmlFor="solution">SOLUTION</label>
+            <textarea name="solution" id="solution" cols="30" rows="5" required ></textarea>
           </div>
           <button>SUBMIT</button>
         </Form>
@@ -105,6 +103,7 @@ const Form = styled.form`
     padding: .4rem;
     border-radius: .3rem;
     border: none;
+    width: 90%;
   }
   button {
     background-color: #e0e0e0fd;
