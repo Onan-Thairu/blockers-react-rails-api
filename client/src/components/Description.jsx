@@ -3,22 +3,24 @@ import Solution from "./Solution"
 import { AiOutlineDelete } from 'react-icons/ai'
 
 function Description({blocker, handleDelete, currentUser }) {
+  const date = new Date(blocker.updated_at)
+
 
   return (
     <>
       { 
         currentUser ?
           <Container>
-            { currentUser.id === blocker.user_id ? <h2 onClick={() => handleDelete(blocker.id)} ><AiOutlineDelete /></h2> : null }
+            { currentUser.id === blocker.user_id ? <h2 onClick={() => handleDelete(blocker.id)}> <AiOutlineDelete /> </h2> : null }
             <h4>{blocker.description}</h4>
             <Solution solution={ blocker.solution} />
-            <span><h6>By {blocker.user.username}</h6><h6 id="tag">{blocker.tag}</h6></span>
+            <span><h6>By {blocker.user.username}</h6><h6 id="tag">{blocker.tag}</h6><h6 id="date">Updated: {date.toDateString()}</h6></span>
           </Container>
        :
           <Container>
             <h4>{blocker.description}</h4>
             <Solution solution={ blocker.solution} />
-            <span><h6>By {blocker.user.username}</h6><h6 id="tag">{blocker.tag}</h6></span>
+            <span><h6>By {blocker.user.username}</h6><h6 id="tag">{blocker.tag}</h6><h6 id="date">Updated: {date.toDateString()}</h6></span>
           </Container>
       }
     </>
@@ -46,6 +48,9 @@ const Container = styled.div`
     background-color: #e0e0e0fd;
     padding: .1rem .2rem;
     border-radius: .3rem;
+  }
+  #date {
+    margin-left: 1rem;
   }
   h2 {
     display: flex;
