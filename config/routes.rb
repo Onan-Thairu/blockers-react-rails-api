@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  # namespace :api do
+  namespace :api do
     resources :blockers, only: [:index, :create, :destroy]
     get '/blockers/:tag', to: 'blockers#filter'
     post '/signup', to: 'users#create'
     post '/login', to: 'sessions#create'
     get '/me', to: 'users#show'
     delete '/logout', to: 'sessions#destroy'
-  # end
+  end
 
 
   # Routing logic: fallback requests for React Router.

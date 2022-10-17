@@ -7,6 +7,7 @@ function Signup() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  const [errors, setErrors] = useState([])
 
   let navigate = useNavigate()
 
@@ -26,6 +27,10 @@ function Signup() {
     .then((response) => {
       if (response.ok) {
         navigate('/login')
+      } else {
+        response.json().then((errorData) => {
+          setErrors(errorData.errors)
+        })
       }
     })
   }
@@ -48,9 +53,19 @@ function Signup() {
             <label htmlFor="password_confirmation">Confirm Password</label>
             <input type="password" id="password_confirmation" autoComplete="on" required value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
           </div>
+          {
+            errors.length > 0 && (
+              <ul style={{ color:"red"}}>
+                {
+                  errors.map((error) => {
+                    return <li key={error}>{error}</li>
+                  })
+                }
+              </ul>
+            )
+          }
           <button>SUBMIT</button>
           <p>Already have an account? <Link to={"/login"} id="login">Login</Link></p>
-          {/* <p id="onlogin"></p> */}
         </Form>
       </div>
     </Wrapper>
@@ -75,6 +90,9 @@ const Wrapper = styled.div`
     text-decoration: underline;
     color: #005b96;
     font-size: .8rem;
+  }
+  ul {
+    list-style-type: none;
   }
 `
 
