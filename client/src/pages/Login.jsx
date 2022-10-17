@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 function Login({ setCurrentUser }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([])
+
   let navigate = useNavigate()
 
   const handleLogin = (e) => {
@@ -17,10 +19,18 @@ function Login({ setCurrentUser }) {
       },
       body: JSON.stringify({username, password})
     })
-    .then((response) => response.json())
-    .then((user) => {
-      setCurrentUser(user)
-      navigate("/list-all")
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((user) => {
+          setCurrentUser(user)
+          navigate("/list-all")
+        })
+      } else {
+        response.json().then((errorData) => {
+          setErrors(errorData.errors)
+          e.target.reset()
+        })
+      }
     })
   }
 
@@ -38,6 +48,17 @@ function Login({ setCurrentUser }) {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" autoComplete="on" required onChange={(e) => setPassword(e.target.value) } />
           </div>
+            {
+              errors.length > 0 && (
+                <ul style={{ color: "red" }}>
+                  {
+                    errors.map((error) => (
+                      <li key={error}>{error}</li>
+                    ))
+                  }
+                </ul>
+              )
+            }
           <button>SUBMIT</button>
           <p>Don't have an account? <Link to={"/signup"} id="signup" >Signup</Link></p>
         </Form>
@@ -64,6 +85,9 @@ const Wrapper = styled.div`
     text-decoration: underline;
     color: #4A4A4A;
     font-size: .8rem;
+  }
+  ul {
+    list-style-type: none;
   }
 `
 
